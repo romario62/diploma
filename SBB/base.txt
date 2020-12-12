@@ -1,0 +1,38 @@
+database t
+
+create table users(
+login varchar primary key,
+passw varchar,
+email varchar);
+
+create table tickets(
+id varchar primary key,
+cityfrom varchar,
+cityto varchar);
+
+create table flight(
+flight_id varchar primary key,
+scheduled_dprt varchar,
+scheduled_arv varchar,
+status varchar,
+dprt_point varchar,
+drv_point varchar);
+
+create table passengers(
+passenger_id varchar primary key,
+fio varchar,
+number varchar);
+
+create table ticket(
+ticket_id varchar primary key,
+airplane varchar,
+seat varchar,
+cost varchar,
+passenger_id varchar,
+flight_id varchar references flight(flight_id));
+
+insert into flight values
+('gr145', '13:40', '14:00', 1, 'samara', 'moscow'),
+('gr144','16:00','18:30',1,'moscow','samara'),
+('mv131','10:00','14:00',1,'moscov','vladivostok'),
+('ss112', '14:20','16:00',1,'spb','sochi');
